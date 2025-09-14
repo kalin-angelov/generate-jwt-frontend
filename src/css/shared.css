@@ -67,7 +67,7 @@
         font-weight: 200;
         font-style: normal;
         letter-spacing: 0.8px;
-   }
+    }
 }
 
 .toggle-btn {
@@ -79,10 +79,6 @@
     i {
         color: rgb(3, 73, 3);
     }
-}
-
-.submit-btn {
-    margin-bottom: 10px;
 }
 
 /* Form - End */
