@@ -38,7 +38,7 @@ const Login = () => {
                 password: "",
             });
 
-            navigate("/me");
+            navigate("/user-profile");
         }
     };
 
@@ -63,15 +63,13 @@ const Login = () => {
                             value={user.password} onChange={(e) => setUser({...user, password: e.target.value})}
                         />
                     
-                        <button className="toggle-btn" onClick={(e) => onTogglePassword(e)}>
+                        <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
                             {togglePassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </button>
                     </fieldset>
 
-                
+                    <button type="submit" onClick={(e) => login(e)} className="btn login-btn">Login</button>
                 </form>
-
-                <button type="submit" onClick={(e) => login(e)} className="btn">Login</button>
 
                 <div className="mini-container">
                     <p className="message">Don't have an account?</p>
