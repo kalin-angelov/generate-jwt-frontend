@@ -61,5 +61,22 @@ export const useAuthStore = create (( set ) => ({
         } catch (error) {
             return { success: false, message: error.message };
         }   
+    },
+    logout: async() => {
+
+        try {
+            await fetch(`${URL}/api/v1/auth/logout`, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("auth"))}`
+                }
+            });
+
+            return { success: true, message: "Goodbye" };
+        } catch (error) {
+            return { success: false, message: error.message };
+        }
+       
+        
     }
 }));
