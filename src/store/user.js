@@ -6,9 +6,9 @@ const URL = "http://localhost:8080";
 export const useUserStore = create (( set ) => ({
     users: [],
     createUsers: (users) => set ({ users }),
-    getUser: async ( userId ) => {
+    getUser: async () => {
          
-        const response = await fetch(`${URL}/api/v1/users/profile?userId=${userId}`, {
+        const response = await fetch(`${URL}/api/v1/users/profile`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("auth"))}`
