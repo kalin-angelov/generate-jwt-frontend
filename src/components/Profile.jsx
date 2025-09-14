@@ -4,30 +4,37 @@ import { toast } from "react-toastify";
 
 import { useUserStore } from "../store/user";
 import { AuthContext } from "../context/AuthContext";
+import { useAuthStore } from "../store/store";
 
 const Profile = () => {
     const navigate = useNavigate();
     const { getUser } = useUserStore();
+    const { logout } = useAuthStore();
     const { setAuth, user, setUser } = useContext(AuthContext);
-    const userId = user.id;
 
     useEffect(() => {
         
-        getUser(userId)
+        getUser()
             .then(data => setUser(data))
             .catch(() => {setAuth({}), navigate("/login")})
             
     },[]);
     
-    const logout = () => {
-        setAuth({})
-        toast.success("Goodbye");
-        navigate("/login");
+    const onLogout = async() => {
+        const { success, message } = await logout();
+
+        if (!success) {
+            toast.error(message);
+        } else {
+            setAuth({});
+            toast.success(message);
+            navigate("/login");
+        }
     }
 
 
     return (
-        <main className="container">
+        <main>
             <div className="userContainer">
                 {!user ? 
                     <div>Loading...</div> 
@@ -62,7 +69,7 @@ const Profile = () => {
                         </div>
                     
                         <button className="btn edit-btn" onClick={() => navigate("/edit")}>Edit</button>
-                        <button className="btn logout-btn" onClick={logout}>Logout</button>
+                        <button className="btn logout-btn" onClick={onLogout}>Logout</button>
                     </>
                 }
             </div>
