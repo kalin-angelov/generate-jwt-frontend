@@ -65,7 +65,7 @@ const Register = () => {
                             onChange={(e) => setNewUser({...newUser, password: e.target.value})}
                         />
 
-                        <button className="toggle-btn" onClick={(e) => onTogglePassword(e)}>
+                        <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
                             {togglePassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </button>
                     </fieldset>
@@ -78,14 +78,14 @@ const Register = () => {
                             value={newUser.confPassword} onChange={(e) => setNewUser({...newUser, confPassword: e.target.value})}
                         />   
 
-                        <button className="toggle-btn" onClick={(e) => onTogglePassword(e)}>
+                        <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
                             {togglePassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </button>
                     </fieldset>
+
+                    <button type="submit" onClick={(e) => {handleRegister(e)}} className="btn signUp-btn">Sign Up</button>
                     
                 </form>
-
-                <button type="submit" onClick={(e) => {handleRegister(e)}} className="btn submit-btn">Sign Up</button>
 
             </article>
             
