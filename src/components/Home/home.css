@@ -1,0 +1,15 @@
+.main-header {
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 1px;
+    margin: 10px;
+}
+
+.welcome-message {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.start-btn {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,88 @@
+.container {
+    width: 310px;
+    height: 500px;
+    padding: 25px;
+    background-color: #F5F5DC;
+    border-radius: 5px;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    color:#d3d396;
+    background-color: rgb(3, 73, 3);
+    padding: 5px;
+    width: 100%;
+
+    font-family: "DM Serif Text", serif;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: 0.8px;
+}
+
+
+/* Form - Start */
+
+.form-header {
+    color:  rgb(3, 73, 3);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+}
+
+.password-filed-container {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.input-field {
+    border: none;
+    border-bottom: 1px solid rgb(3, 73, 3);
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+
+    &::placeholder {
+        font-family: "DM Serif Text", serif;
+        font-weight: 200;
+        font-style: normal;
+        letter-spacing: 0.8px;
+   }
+}
+
+.toggle-btn {
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid rgb(3, 73, 3);
+    background-color: transparent;
+
+    i {
+        color: rgb(3, 73, 3);
+    }
+}
+
+.submit-btn {
+    margin-bottom: 10px;
+}
+
+/* Form - End */
