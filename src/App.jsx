@@ -38,7 +38,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
 
                     <Route element={<RouteGuard />} >
-                        <Route path="/me" element={<Profile />} />
+                        <Route path="/user-profile" element={<Profile />} />
                         <Route path="/edit" element={<ProfileEdit />}/>
                     </Route>
                 </Routes>
