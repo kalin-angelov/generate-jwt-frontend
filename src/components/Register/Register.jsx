@@ -87,6 +87,15 @@ const Register = () => {
                     
                 </form>
 
+                <div className="mini-container">
+                    <p className="message">You have an account?</p>
+
+                    <Link to={"/login"}>
+                        <button className="btn">Login</button>
+                    </Link>
+                    
+                </div>
+
             </article>
             
         </main>
