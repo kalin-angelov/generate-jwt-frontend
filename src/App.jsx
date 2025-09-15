@@ -6,14 +6,14 @@ import { ToastContainer } from "react-toastify";
 
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./context/AuthContext";
-import { RouteGuard } from "./components/RouteGuard";
+import { RouteGuard } from "./components/Shared/RouteGuard";
 
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
-import Profile from "./components/Profile";
-import ProfileEdit from "./components/ProfileEdit";
-import PageNotFound from "./components/PageNotFound";
+import Profile from "./components/Profile/Profile";
+import ProfileEdit from "./components/Profile/ProfileEdit";
+import PageNotFound from "./components/Shared/PageNotFound";
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
