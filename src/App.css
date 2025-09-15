@@ -1,7 +1,7 @@
 @import url("https://use.fontawesome.com/releases/v6.4.0/css/all.css");
 
 @import "./css/shared.css";
-@import "./css/profile.css";
+@import "./components/Profile/profile.css";
 @import "./components/Home/home.css";
 @import "./components/Register/register.css";
 @import "./components/Login/login.css";
@@ -31,14 +31,4 @@ a {
     color:#d3d396;
     text-decoration: none;
     width: 100%;
-}
-
-.back {
-    background-color: rgb(32, 105, 201);
-    color: white;
-    font-size: 16px;
-    width: 80px;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
 }

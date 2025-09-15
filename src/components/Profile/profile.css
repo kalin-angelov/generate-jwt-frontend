@@ -1,0 +1,44 @@
+.circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgb(3, 73, 3);
+}
+
+.profile-container {
+    justify-content: unset;
+}
+
+.profile-header {
+    color: rgb(3, 73, 3);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    margin: 15px;
+    text-decoration: underline;
+}
+
+.img-container {
+    margin: 8px;
+}
+
+.profile-img{
+    border: 2px solid white;
+    padding: 3px;
+}
+
+.username-header {
+    text-transform: uppercase;
+}
+
+.user-info {
+    margin: 15px;
+    padding: 15px;
+    color: rgb(3, 73, 3);
+    list-style: none;
+
+    li {
+        padding: 2px;
+    }
+}
