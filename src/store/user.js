@@ -28,7 +28,7 @@ export const useUserStore = create (( set ) => ({
     editUser: async (body, userId) => {
 
         try {
-            const response = await fetch(`${URL}/api/v1/users/${userId}/edit`, {
+            const response = await fetch(`${URL}/api/v1/users/edit?userId=${userId}`, {
                 method: "PUT",
                 headers: {
                     "Authorization": `Bearer ${JSON.parse(localStorage.getItem("auth"))}`,
