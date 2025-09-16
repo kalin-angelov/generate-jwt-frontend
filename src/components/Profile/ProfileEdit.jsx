@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { AuthContext } from "../../context/AuthContext";
@@ -23,7 +23,7 @@ const ProfileEdit = () => {
         if (success) {
             toast.success("Profile successfully edit.");
 
-            navigate("/me");
+            navigate("/user-profile");
         }
 
         if (!success) {
@@ -42,12 +42,14 @@ const ProfileEdit = () => {
 
                 <div className="circle"></div>
                 <h2 className="profile-header">Pass Edit</h2>
-                <>
-                    <figure className="img-container">
-                        <img className="profile-img" src={user.imgUrl ? user.imgUrl : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} width={100} alt="profile img" />
-                    </figure>
-                </>
+                
+                <figure className="img-container">
+                    <img className="profile-img" src={user.imgUrl ? user.imgUrl : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} width={100} alt="profile img" />
+                </figure>
+            
 
+                <Link className="link-to" to={"/password-change"}>Change password</Link>
+                
                 <form className="form">
                     
                     <input className="input-field" type="text" placeholder="First name" name="firstName" value={formValue.firstName} onChange={onFormValueChange}/>
@@ -64,6 +66,7 @@ const ProfileEdit = () => {
                     <button className="btn form-btn" type="submit" onClick={(e) => editProfile(e)}>Save</button>
                 </form>
 
+                
             </article>
             
         </main>
