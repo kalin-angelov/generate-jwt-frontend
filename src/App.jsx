@@ -13,6 +13,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileEdit from "./components/Profile/ProfileEdit";
+import PasswordEdit from "./components/Profile/PasswordEdit";
 import PageNotFound from "./components/Shared/PageNotFound";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                     <Route element={<RouteGuard />} >
                         <Route path="/user-profile" element={<Profile />} />
                         <Route path="/edit" element={<ProfileEdit />}/>
+                        <Route path="/password-change" element={<PasswordEdit />} />
                     </Route>
                 </Routes>
 
