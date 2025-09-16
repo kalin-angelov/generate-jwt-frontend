@@ -40,18 +40,8 @@ const Profile = () => {
                             <ul className="user-info">
 
                                 <li>Role : <span>{user.role}</span></li>
-                                {!user.lastName && !user.firstName 
-                                    ? 
-                                    <>
-                                        <li>First name : <span>Null</span></li>
-                                        <li>Last name : <span>Null</span></li>
-                                    </>  
-                                    :
-                                    <>
-                                        {user.firstName ? <li>First name : <span>{user.firstName}</span></li> : null}
-                                        {user.lastName ? <li>Last name : <span>{user.lastName}</span></li> : null}
-                                    </>  
-                                } 
+                                {user.firstName ? <li>First name : <span>{user.firstName}</span></li> : <li>First name : <span>Null</span></li>}
+                                {user.lastName ? <li>Last name : <span>{user.lastName}</span></li> : <li>Last name : <span>Null</span></li>}
                                 <li>Email : <span>{user.email}</span></li>
 
                             </ul>
