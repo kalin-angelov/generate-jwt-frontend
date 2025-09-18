@@ -50,5 +50,40 @@ export const useUserStore = create (( set ) => ({
         } catch (error) {
             return { success: false };
         }
+    },
+    changePassword: async (body, userId) => {
+
+        try {
+            if(!body.oldPassword  || !body.newPassword || !body.confirmPassword) {
+                return { success: false, message: "All fields are required"};
+            }
+
+            if (body.newPassword !== body.confirmPassword) {
+                return { success: false, message: "Passwords don't match"};
+            }
+
+            console.log(body);
+            debugger
+            
+            const response = await fetch(`${URL}/api/v1/users/change-password?userId=${userId}` , {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("auth"))}`,
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(body)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                return { success: true };
+            } else {
+                toast.error(result.message);
+            }
+        } catch(error) {
+            return { success: false};
+        }
     }
+
 }));
