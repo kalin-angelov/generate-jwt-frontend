@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
+import { useUserStore } from "../../store/user";
+import { useAuthStore } from '../../store/store';
+import { AuthContext } from "../../context/AuthContext";
 
 import BackBtn from '../Shared/BackBtn';
 import LogoutBtn from '../Shared/LogoutBtn';
 
+
 function PasswordEdit() {
+    const navigate = useNavigate();
     const [togglePassword, setTogglePassword] = useState(false);
+    const { user, setAuth } = useContext(AuthContext);
+    const { logout } = useAuthStore();
+    const { changePassword } = useUserStore();
     const [passwordEdit, setPasswordEdit] = useState({
         oldPassword: "",
         newPassword: "",
@@ -12,11 +23,27 @@ function PasswordEdit() {
     });
 
     const onTogglePassword = (e) => {
-
         e.preventDefault();
         setTogglePassword(!togglePassword);
-        
     };
+
+    const onChangePassword = async (e) => {
+        e.preventDefault();
+        
+        const userId = user.id;
+        const { success, message } = await changePassword(passwordEdit, userId);
+
+        if (success) {
+            toast.success(message);
+            await logout();
+
+            setAuth({});
+            navigate("/login");
+        } else {
+            toast.error(message);
+        }
+
+    }
 
     return (
         <main>
@@ -41,7 +68,8 @@ function PasswordEdit() {
                             className="input-field"
                             type={togglePassword ? "text" : "password"} 
                             placeholder="Old password" 
-                    
+                            value={passwordEdit.oldPassword}
+                            onChange={(e) => setPasswordEdit({...passwordEdit, oldPassword: e.target.value})}
                         />
                     
                         <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
@@ -55,7 +83,8 @@ function PasswordEdit() {
                             className="input-field"
                             type={togglePassword ? "text" : "password"} 
                             placeholder="New password" 
-                            
+                            value={passwordEdit.newPassword}
+                            onChange={(e) => setPasswordEdit({...passwordEdit, newPassword: e.target.value})}
                         />
                     
                         <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
@@ -69,7 +98,8 @@ function PasswordEdit() {
                             className="input-field"
                             type={togglePassword ? "text" : "password"} 
                             placeholder="Confirm password" 
-                            
+                            value={passwordEdit.confirmPassword}
+                            onChange={(e) => setPasswordEdit({...passwordEdit, confirmPassword: e.target.value})}
                         />
                     
                         <button className="toggle-btn" type="button" tabIndex={-1} onClick={(e) => onTogglePassword(e)}>
@@ -77,7 +107,7 @@ function PasswordEdit() {
                         </button>
                     </fieldset>
 
-                    <button className="btn password-btn" type="submit">Save</button>
+                    <button className="btn password-btn" type="submit" onClick={(e) => onChangePassword(e)}>Save</button>
                 </form>
                 
             </article>
