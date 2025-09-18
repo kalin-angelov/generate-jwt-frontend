@@ -61,9 +61,6 @@ export const useUserStore = create (( set ) => ({
             if (body.newPassword !== body.confirmPassword) {
                 return { success: false, message: "Passwords don't match"};
             }
-
-            console.log(body);
-            debugger
             
             const response = await fetch(`${URL}/api/v1/users/change-password?userId=${userId}` , {
                 method: "PUT",
